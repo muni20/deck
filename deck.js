@@ -1,4 +1,4 @@
-const SUITS = ["HEARTS","SPADES","CLUBS","DIAMONDS"]
+const SUITS = ["&hearts;", "&diams;", "&spades;", "&clubs;"]
 const VALUES = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 
 export default class Deck {
@@ -8,17 +8,6 @@ export default class Deck {
 
     get numberOfCards() {
         return this.cards.length
-    }
-
-    removeCards(deleteCards) {
-        deleteCards.forEach((card) => {
-            this.cards.forEach((deck) => {
-                if (deck.suit === card.suit && deck.value === card.value) {
-                    let index = this.cards.indexOf(deck)
-                    this.cards.splice(index, 1)
-                }
-            })
-        })
     }
 
     shuffle() {
@@ -60,35 +49,4 @@ function freshDeck() {
             return new Cards(suit, value)
         })
     })
-}
-export class Table {
-    constructor(trumpSuit, gameMode, allPlayersSlots) {
-        // declaring as constant as this should never change while playing game
-        
-        this.maxRounds = maxRounds
-        this.maxPlayers = maxPlayers
-        this.trumpSuit = trumpSuit
-        this.gameMode = _GameMode
-        this.allPlayersSlots = allPlayersSlots
-    }
-}
-export class PlayerDeck {
-    constructor(player, cards, handsToMake, playerSlot, handsWon) {
-
-        this.player = player
-        this.cards = cards
-        this.handsToMake = handsToMake
-        this.playerSlot = playerSlot
-        this.handsWon = handsWon
-    }
-}
-export class Round {
-    constructor(currentPlayerTurn, roundWinner, cardsInPit, currentRoundSuit, currentRound) {
-
-        this.currentPlayerTurn = currentPlayerTurn
-        this.roundWinner = roundWinner
-        this.cardsInPit = cardsInPit
-        this.currentRoundSuit = currentRoundSuit
-        this.currentRound = currentRound
-    }
 }
